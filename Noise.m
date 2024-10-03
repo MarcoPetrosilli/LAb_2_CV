@@ -20,9 +20,10 @@ colormap gray
 title("Gaussian noise")
 
 % histogram
-% figure
-subplot(1,2,2)
-histogram(img_out, 256)
+figure
+% subplot(1,2,2)
+% histogram(img_out, 256)
+imhist(uint8(img_out), 256)
 title("Noise distrubution");
 
 %% Salt and pepper 
