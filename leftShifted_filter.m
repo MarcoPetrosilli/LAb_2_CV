@@ -4,4 +4,5 @@ function I_filtered_ls = leftShifted_filter(I)
     I_filtered_ls = conv2(double(I), kernel, 'same');
     figure;
     imshow(uint8(I_filtered_ls)), title('Left shifted filter');
+    drawnow;
 end
