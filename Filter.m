@@ -40,5 +40,5 @@ figure;
 for i = 1:7
     subplot(2, 4, i);
     imshow(images{i});
-    title([titles(i)]);
+    title([titles(i)]); 
 end
