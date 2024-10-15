@@ -12,7 +12,7 @@ function I_filtered_s = sharpening_filter(I)
     figure
     subplot(1,2,1),surf(kernel),title('Sharpening filter');
     drawnow;
-    subplot(1,2,2),imagesc(kernel);
+    subplot(1,2,2),imagesc(kernel),grid on;
     drawnow;
     pause(0.01);
 end

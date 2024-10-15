@@ -9,7 +9,7 @@ function I_filtered_i = impulse_filter(I)
     figure
     subplot(1,2,1),surf(kernel),title('Impulse filter');
     drawnow;
-    subplot(1,2,2),imagesc(kernel);
+    subplot(1,2,2),imagesc(kernel),grid on;
     drawnow;
 
     pause(0.01);
