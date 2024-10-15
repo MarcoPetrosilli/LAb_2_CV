@@ -8,11 +8,12 @@ function I_filtered_s = sharpening_filter(I)
     figure;
     imshow(uint8(I_filtered_s)), title('Sharpening filter');
     drawnow;
-    figure,imagesc(kernel),colormap gray,title('Sharpening filter');
+    
+    figure
+    subplot(1,2,1),surf(kernel),title('Sharpening filter');
     drawnow;
-    figure,surf(kernel),title('Sharpening filter');
+    subplot(1,2,2),imagesc(kernel);
     drawnow;
-
     pause(0.01);
 end
 

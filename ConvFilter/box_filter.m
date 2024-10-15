@@ -4,9 +4,11 @@ function I_filtered_box = box_filter(I)
     figure;
     imshow(uint8(I_filtered_box)), title('Box filter');
     drawnow;
-    figure,imagesc(kernel),colormap gray,title('Box filter');
+
+    figure
+    subplot(1,2,1),surf(kernel),title('Box filter');
     drawnow;
-    figure,surf(kernel),title('Box filter');
+    subplot(1,2,2),imagesc(kernel);
     drawnow;
 
     pause(0.01);

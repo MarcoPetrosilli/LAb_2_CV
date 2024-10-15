@@ -5,9 +5,11 @@ function I_filtered_i = impulse_filter(I)
     figure;
     imshow(uint8(I_filtered_i)), title('Impulse filter');
     drawnow;
-    figure,imagesc(kernel),colormap gray,title('Impulse filter');
+
+    figure
+    subplot(1,2,1),surf(kernel),title('Impulse filter');
     drawnow;
-    figure,surf(kernel),title('Impulse filter');
+    subplot(1,2,2),imagesc(kernel);
     drawnow;
 
     pause(0.01);
