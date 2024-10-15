@@ -5,9 +5,11 @@ function I_filtered_ls = leftShifted_filter(I)
     figure;
     imshow(uint8(I_filtered_ls)), title('Left shifted filter');
     drawnow;
-    figure,imagesc(kernel),colormap gray,title('Left shifted filter');
+
+    figure
+    subplot(1,2,1),surf(kernel),title('Left shifted filter');
     drawnow;
-    figure,surf(kernel),title('Left shifted filter');
+    subplot(1,2,2),imagesc(kernel),grid on;
     drawnow;
 
     pause(0.01);
