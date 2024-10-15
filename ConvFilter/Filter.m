@@ -1,9 +1,9 @@
+function Filter(I)
 
 images = cell(1, 7);
 titles = ["Original image", "Impulse filter", "Left shifted filter", "Box filter", "Sharpening filter", "Detail from image", "Sharpened image"];
 
-%I = imread('Lab2_testimages/tree.png');
-I = imread('Lab2_testimages/i235.png');
+
 images{1}=I;
 
 figure; 
@@ -41,3 +41,5 @@ images{7}=sharp_img;
 %     imshow(images{i});
 %     title([titles(i)]); 
 % end
+
+end
