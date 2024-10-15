@@ -35,9 +35,9 @@ sharp_img=sharpened_image(I,a,detail_img);
 images{7}=sharp_img;
 
 %Display images
-% figure;
-% for i = 1:7
-%     subplot(2, 4, i);
-%     imshow(images{i});
-%     title([titles(i)]); 
-% end
+figure;
+for i = 1:7
+    subplot(2, 4, i);
+    imshow(images{i},[]);
+    title([titles(i)]); 
+end
