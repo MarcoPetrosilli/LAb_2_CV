@@ -1,5 +1,5 @@
 
-img = imread('tree.png');
+img = imread("Lab2_testimages\tree.png");
 IMG=fft2(img);
 MOD=abs(IMG);
 PHI=angle(IMG);
