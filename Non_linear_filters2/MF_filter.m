@@ -23,7 +23,6 @@ figure
 subplot(1,2,1)
 imshow(filtered_image)
 title('Median filter')
-colormap gray
 subplot(1,2,2)
 imhist(uint8(filtered_image), 256)
 

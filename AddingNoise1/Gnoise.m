@@ -7,10 +7,10 @@ colormap gray
 %gaussian noise
 std_dev = 20;
 
-Gnoise = double(In_image) + std_dev*randn(size(In_image));
+Image_Gnoise = double(In_image) + std_dev*randn(size(In_image));
 
 figure 
-imagesc(Gnoise)
+imagesc(Image_Gnoise)
 colormap gray
 title("Gaussian noise")
 
