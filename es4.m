@@ -1,60 +1,29 @@
 
+<<<<<<< HEAD
 img = imread("Lab2_testimages\tree.png");
 IMG=fft2(img);
 MOD=abs(IMG);
 PHI=angle(IMG);
+=======
+% Main script to apply Fourier Transforms and filters on images
+>>>>>>> bf5d576d7e7c87738502e8736d17c8111c5dfc59
 
-figure,imagesc(img), colormap gray,axis square
+% Step 1: Load the image
+img = imread('Lab2_testimages/tree.png');
+%img = rgb2gray(img);  % Ensure grayscale
 
-figure,imagesc(log(fftshift(MOD))), colormap gray,xlabel('wx'),ylabel('wy'),axis square
-title('Log-Magnitude Spectrum of Original Image');
+% Step 2: Apply FFT on the original image
+display_fft(img, 'Original Image');
 
-%2: Gaussian low-pass filter (size 101x101, sigma=5)
-%im=rgb2gray(img);
-h = fspecial('gaussian', 101, 5);
-out = imfilter(img, h); 
-%imagesc(out);colormap gray
+% Step 3: Apply Gaussian Low-Pass Filter (size 101x101, sigma=5) and display FFT
+filtered_img = apply_gaussian_filter(img, 101, 5);
+display_fft(filtered_img, 'Filtered Image');
 
-IMG2=fft2(out);
-MOD=abs(IMG2);
+% Step 4: Apply Sharpening Filter (7x7) and display FFT
+sharpened_img = apply_sharpening_filter(img);
+display_fft(sharpened_img, 'Sharpened Image');
 
-figure,imagesc(log(fftshift(MOD))), colormap gray,xlabel('wx'),ylabel('wy'),axis square
-title('Log-Magnitude Spectrum of Filtered Image');
-
-%3
-
-% Step 2: Create a 7x7 sharpening filter accentuating differences with local average
-% Local averaging filter (mean filter 7x7)
-local_average_filter = (1/49) * ones(7, 7);  % 7x7 averaging filter
-
-% Identity filter (7x7) placed at the center
-identity_filter = zeros(7, 7);
-identity_filter(4, 4) = 2;  % Central pixel (4,4) corresponds to the center of a 7x7 filter
-
-% Sharpening filter = Identity filter - Local averaging filter
-sharpening_filter = identity_filter - local_average_filter;
-
-% Step 3: Apply the sharpening filter to the image
-sharpened_image = imfilter(img, sharpening_filter, 'replicate');
-
-% Step 4: Apply the 2D FFT to the sharpened image
-FFT_sharpened_img = fft2(sharpened_image);
-MOD_sharpened_img = abs(FFT_sharpened_img);  % Magnitude of the FFT result
-
-% Step 5: Display the log-magnitude spectrum of the transformed sharpened image
-figure;
-imagesc(log(1 + fftshift(MOD_sharpened_img))); % Use fftshift to center the low frequencies
-colormap gray;
-xlabel('wx');
-ylabel('wy');
-title('Log-Magnitude Spectrum of Transformed Sharpened Image');
-axis square;
-colorbar; % Add a color bar for magnitude scale
-
-% Step 6: Display the original and sharpened image for reference
+% Step 5: Display original and sharpened images
 figure;
 subplot(1, 2, 1), imshow(img), title('Original Image');
-subplot(1, 2, 2), imshow(sharpened_image), title('Sharpened Image');
-
-
-
+subplot(1, 2, 2), imshow(sharpened_img), title('Sharpened Image');
