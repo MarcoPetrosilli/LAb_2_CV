@@ -1,5 +1,5 @@
-function sharpened_img = apply_sharpening_filter(img)
-    % Function to apply a 7x7 sharpening filter to an image with 101x101 zero-padding
+function padded_filter = apply_sharpening_filter()
+   
     %Create 7x7 local averaging filter (mean filter)
     local_average_filter = (1/49) * ones(7, 7);
     
@@ -11,7 +11,7 @@ function sharpened_img = apply_sharpening_filter(img)
     sharpening_filter = identity_filter - local_average_filter;
     
     % Create a 101x101 zero-padded filter and place the 7x7 sharpening filter in the center
-    pad_size = 101;        % Target zero-padded matrix size (101x101)
+    pad_size = 101;       
     filter_size = 7;       % Size of the sharpening filter
     padded_filter = zeros(pad_size, pad_size);  % Create a zero matrix (101x101)
     
@@ -21,7 +21,5 @@ function sharpened_img = apply_sharpening_filter(img)
     % Place the 7x7 sharpening filter in the middle of the 101x101 zero matrix
     padded_filter(filter_idx:filter_idx+filter_size-1, filter_idx:filter_idx+filter_size-1) = sharpening_filter;
     
-    % Step 5: Apply the sharpening filter directly to the image using imfilter
-    sharpened_img = imfilter(img, padded_filter, 'replicate');
     
 end
