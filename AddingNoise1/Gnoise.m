@@ -15,7 +15,7 @@ colormap gray
 title("Gaussian noise")
 
 figure
-imhist(uint8(Gnoise), 256)
+imhist(uint8(Image_Gnoise), 256)
 title("Gaussian noise distrubution");
 
 

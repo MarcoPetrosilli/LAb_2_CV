@@ -20,12 +20,12 @@ Image_SPnoise= In_image.*(~mask1) ;
 Image_SPnoise= Image_SPnoise.*(~mask2)+maxv*mask2;
 
 figure
-imagesc(SPnoise)
+imagesc(Image_SPnoise)
 colormap gray
 title("Salt & pepper noise")
 
 figure
-imhist(uint8(SPnoise), 256)
+imhist(uint8(Image_SPnoise), 256)
 title("Salt & pepper noise distribution")
 
 end
