@@ -1,7 +1,4 @@
-%function recal - use cd to go inside the directory of the function
-
-
-clear all;clc;
+clear all; clc; close all;
 
 
 I = imread("Lab2_testimages/tree.png");
@@ -21,12 +18,12 @@ while(1)
     
     switch choice
         case 1
-
+            addpath("AddingNoise1\");
             Gnoise(I);
             SPnoise(I);
     
         case 2
-
+            addpath("Non_linear_filters2\");
             for i = 1:2
                 Dim_ss = [3 7];
                 
@@ -36,15 +33,15 @@ while(1)
     
                 MA_filter(I,Dim_ss(i));
                 MF_filter(I,Dim_ss(i));
-                IpG_filter(I,30,sigma); % ERRORE
+                lpG_filter(I,Dim_ss(i),sigma); % ERRORE
             end
 
         case 3
-
+            addpath("ConvFilter\");
             ConvFilter(I);
 
         case 4
-
+            addpath("FourierTransform\");
             FourierTransform(I);
     
         case 5

@@ -1,9 +1,5 @@
 function filtered_image = lpG_filter(In_image, Dim_ss, Sigma)
 
-
-    % In_image = imread("Lab2_testimages\tree.png");
-    % Sigma = 3;
-    % Dim_ss = 30;
     figure
     imagesc(In_image)
     colormap gray
@@ -19,8 +15,7 @@ function filtered_image = lpG_filter(In_image, Dim_ss, Sigma)
     imagesc(low_pass_G_filter)
     grid on
     
-    % In2grey = im2gray(In_image);
-    filtered_image = imfilter(In2grey, low_pass_G_filter);
+    filtered_image = imfilter(In_image, low_pass_G_filter);
     figure
     subplot(1,2,1)
     imshow(filtered_image); %imshow o imagesc?
