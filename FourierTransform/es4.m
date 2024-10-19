@@ -1,4 +1,4 @@
-
+ 
 % Main script to apply Fourier Transforms and filters on images
 
 % Step 1: Load the image
