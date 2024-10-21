@@ -6,8 +6,8 @@ function ConvFilter(I)
     %I = imread('Lab2_testimages/i235.png');
     images{1}=I;
     
-    figure; 
-    imshow(I);title('Original image'),drawnow;
+%     figure; 
+%     imshow(I);title('Original image'),drawnow;
     
     %Impulse filter
     I_filtered_i = impulse_filter(I);

@@ -5,9 +5,9 @@ function I_filtered_s = sharpening_filter(I)
     kernel = kernel_1-kernel_2;
     
     I_filtered_s = conv2(double(I), kernel, 'same');
-    figure;
-    imshow(uint8(I_filtered_s)), title('Sharpening filter');
-    drawnow;
+    %figure;
+    %imshow(uint8(I_filtered_s)), title('Sharpening filter');
+    %drawnow;
     
     figure
     subplot(1,2,1),surf(kernel),title('Sharpening filter');
