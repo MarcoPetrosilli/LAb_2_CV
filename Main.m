@@ -1,5 +1,5 @@
 clear all; clc; close all;
-
+set(0, 'DefaultFigureWindowState', 'maximized'); %to visualize figures on full screnn
 
 I = imread("Lab2_testimages/tree.png");
 I = im2gray(I);
