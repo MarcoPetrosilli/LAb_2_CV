@@ -1,24 +1,28 @@
-function filtered_image = lpG_filter(In_image, Dim_ss, Sigma)
-
-    figure
-    imagesc(In_image)
-    colormap gray
+function filtered_image = lpG_filter(In_image, Dim_ss, Sigma, string)
 
     low_pass_G_filter = fspecial('gaussian', [Dim_ss Dim_ss], Sigma);
     
     figure
-    subplot(1,2,1)
-    title("Low-pass Gaussian filter");
+
+    sgtitle("Low-pass Gaussian filter on " + string + " : dimension " + num2str(Dim_ss));
+    subplot(2,2,1)
     surf(low_pass_G_filter);
     xlabel('X'); ylabel('Y');
-    subplot(1,2,2)
-    imagesc(low_pass_G_filter)
+    subplot(2,2,2)
+    imagesc(low_pass_G_filter);
     grid on
-    
+        
     filtered_image = imfilter(In_image, low_pass_G_filter);
-    figure
-    subplot(1,2,1)
-    imshow(filtered_image); %imshow o imagesc?
-    subplot(1,2,2)
+    
+    subplot(2,2,3)
+    title("Low pass Gaussian filter")
+    imagesc(filtered_image); colormap(gca, 'gray');
+    subplot(2,2,4)
+    title(string)
     imhist(uint8(filtered_image), 256)
+
+
+    
+
+
  end

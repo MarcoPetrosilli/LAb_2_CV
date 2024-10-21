@@ -1,11 +1,6 @@
-function Image_SPnoise = SPnoise(In_image)
-
-figure
-imagesc(In_image);
-colormap gray
+function Image_SPnoise = SPnoise(In_image, density)
 
 %Salt and pepper 
-density = 0.2;
 
 In_image=double(In_image);
 [raws,cls]=size(In_image);
@@ -20,11 +15,13 @@ Image_SPnoise= In_image.*(~mask1) ;
 Image_SPnoise= Image_SPnoise.*(~mask2)+maxv*mask2;
 
 figure
+sgtitle("Salt & pepper noise (density = " + num2str(density) + ")")
+subplot(1,2,1)
 imagesc(Image_SPnoise)
 colormap gray
-title("Salt & pepper noise")
+title("Salt & pepper noise on image")
 
-figure
+subplot(1,2,2)
 imhist(uint8(Image_SPnoise), 256)
 title("Salt & pepper noise distribution")
 

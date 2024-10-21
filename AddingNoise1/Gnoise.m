@@ -1,20 +1,19 @@
-function Image_GNoise = Gnoise(In_image)
-    
-figure
-imagesc(In_image);
-colormap gray
+function Image_Gnoise = Gnoise(In_image, std_dev)
 
 %gaussian noise
-std_dev = 20;
+
+
 
 Image_Gnoise = double(In_image) + std_dev*randn(size(In_image));
 
-figure 
+figure
+sgtitle("Gaussian noise (standard deviation  = " + num2str(std_dev) +")")
+subplot(1,2,1)
 imagesc(Image_Gnoise)
 colormap gray
-title("Gaussian noise")
+title("Gaussian noise on image")
 
-figure
+subplot(1,2,2)
 imhist(uint8(Image_Gnoise), 256)
 title("Gaussian noise distrubution");
 

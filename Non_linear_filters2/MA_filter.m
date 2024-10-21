@@ -1,35 +1,25 @@
-function filtered_image = MA_filter(In_image, Dim_ss)
-
-
-    % In_image = imread("Lab2_testimages\tree.png");
-    % Dim_ss = 7;
-
-    % Ss=ones(Dim_ss)/(Dim_ss^2);
-    figure
-    imagesc(In_image)
-    colormap gray
+function filtered_image = MA_filter(In_image, Dim_ss, string)
 
     MAfilter = fspecial('average', [Dim_ss Dim_ss]);
     filtered_image=conv2(In_image,MAfilter,'same');
 
 
     figure;
-    subplot(1,2,1)
+    sgtitle("Moving average filter on " + string + " : dimension " + num2str(Dim_ss))
+    subplot(2,2,1)
     surf(MAfilter);
-    title("Moving average filter");
     xlabel('X');
     ylabel('Y');
-    subplot(1,2,2)
+    subplot(2,2,2)
     imagesc(MAfilter)
     grid on
 
-    figure
-    subplot(1,2,1)
-    imagesc(filtered_image)
-    colormap gray
-    title("Moving average")
+    subplot(2,2,3)
+    title("Moving average filter")
+    imagesc(filtered_image); colormap(gca, 'gray');
 
-    subplot(1,2,2)
+    subplot(2,2,4)
+    title(string)
     imhist(uint8(filtered_image), 256)
 
 end
