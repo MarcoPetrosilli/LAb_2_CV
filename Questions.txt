@@ -1,0 +1,14 @@
+-Ma le funzioni di filtraggio del punto 2 vanno implementate completamente a mano o è possibile utilizzare quelle di libreria messe a disposizione da matlab?
+ad esempio il filtro mediano; use matlab function 
+
+-Il filtro mediano che non si può stampare come lo stampo visto che non ha componenti fisse? non si plotta
+
+-le immagini vanno stampate tutte con imagesc o con imshow? both are fine, use sublot
+
+-quando stampi i filtri nel punto due con surf non si vede un 7x7 ma un 6x6 comunque sempre ridotto di una dimensione: you need to count the corner not the box
+
+-in genere cosa devo mettere sul report: for example add noise you comment no metodology BUT TYPE OF FILTER, TYPE OF NOISE BUT NO METODOLOGY
+
+-sul subplot del filtro di marco a seguito di conversione le immagini nel subplot si vedono sfocate - uso di uint8 RISOLTO
+
+-lavorare su tutte e due le immagini? just one
